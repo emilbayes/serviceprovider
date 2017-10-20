@@ -16,18 +16,18 @@ export function getSpecification(specName = 'definitions') {
  * Extract Schema definition from swagger documentation. This is used to validate input objects.
  **/
 export function getSchemaDefinition(swagger, name) {
-  const definition = swagger.definitions[name];
+  const definition = swagger.definitions[name] || {};
   if (definition.allOf && Array.isArray(definition.allOf)) {
     const definitionName = definition.allOf[0].$ref.replace('#/definitions/', '');
     const subDefinition = getSchemaDefinition(swagger, definitionName);
     definition.properties = Object.assign({}, definition.properties, subDefinition.properties);
     delete definition.allOf;
-  }
-  Object.keys(definition.properties).forEach(key => {
+  } 
+  Object.keys(definition.properties || {}).forEach(key => {
     if (definition.properties[key].$ref) {
       definition.properties[key] = getSchemaDefinition(swagger, definition.properties[key].$ref.replace('#/definitions/', ''));
     }
-  });
+  }); 
 
   return definition;
 }
