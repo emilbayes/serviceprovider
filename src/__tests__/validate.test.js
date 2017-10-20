@@ -53,7 +53,13 @@ describe('Testing ValidateResponse', () => {
     const response = [{term: 1234}, {term: 'Harry Potter og Hemmelighedernes Kammer'}];
     const result = validateResponse(name, response);
     assert.isArray(result);
-    assert.lengthOf(result, 2);
-    assert.equal(result[1].message, 'is not of a type(s) string');
+    assert.lengthOf(result, 1);
+  });
+  it('Should return error array caused by extra properties', () => {
+    const name = 'suggest';
+    const response = [{notSupported: true, term: 'Harry Potter og Hemmelighedernes Kammer'}];
+    const result = validateResponse(name, response);
+    assert.isArray(result);
+    assert.lengthOf(result, 1);
   });
 });
