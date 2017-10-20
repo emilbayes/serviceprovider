@@ -2,7 +2,6 @@ definitions:
   SuggestResponse:
     additionalProperties: false
     oneOf:
-      - $ref: "#/definitions/SuggestCreatorResponse"
       - $ref: "#/definitions/SuggestTitleResponse"
       - $ref: "#/definitions/SuggestLibraryResponse"
   SuggestTitleResponse:
@@ -15,17 +14,10 @@ definitions:
         pid: 
           type: string
         type: 
-          type: string      
-      additionalProperties: false
-  SuggestCreatorResponse:
-    type: array
-    items:
-      type: object
-      properties:
+          type: string  
         creator: 
           type: string
       additionalProperties: false
-
   SuggestLibraryResponse:
     type: array
     items:
