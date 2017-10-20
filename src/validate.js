@@ -1,7 +1,7 @@
 import {Validator, validate} from 'jsonschema';
 var v = new Validator();
-import {getSpecification, getSchemaDefinition} from './swaggerFromSpec';
-const swagger = getSpecification('definitions-api');
+import loadSwagger from './swaggerFromSpec';
+const swagger = loadSwagger();
 v.addSchema(swagger, '/');
 
 import fs from 'fs';
