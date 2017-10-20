@@ -293,11 +293,8 @@ module.exports.run = function(worker) {
   // The swagger specification is generated from `spec.yml`
   // and returned as this separate endpoint.
   app.all(apiPath + 'swagger.json', (req, res) => {
-    return swaggerFromSpec().then((response) => {
-      res.jsonp(response);
-    }, (error) => {
-      res.jsonp(error);
-    });
+    const spec = swaggerFromSpec();
+    res.jsonp(spec);
   });
 
   // handle token-related errors

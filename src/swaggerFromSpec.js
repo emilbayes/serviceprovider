@@ -57,23 +57,18 @@ function generateSwagger(spec) {
 }
 
 function loadYamlFiles() {
-  return new Promise(function(resolve) {
-    const path = __dirname + '/../doc';
-    glob(path + '/**/*.yaml', function(er, files) {
-      const contents = files.map(f => {
-        return yaml.safeLoad(fs.readFileSync(f).toString('utf-8'));
-      });
-      const extend = extendify({
-        inPlace: false,
-        isDeep: true
-      });
-      resolve(contents.reduce(extend));
-    });
+  const path = __dirname + '/../doc';
+  const files = glob.sync(path + '/**/*.yaml');
+  const contents = files.map(f => {
+    return yaml.safeLoad(fs.readFileSync(f).toString('utf-8'));
   });
+  const extend = extendify({
+    inPlace: false,
+    isDeep: true
+  });
+  return contents.reduce(extend);
 }
 
 export default function() {
-  return loadYamlFiles().then(function(spec) {
-    return generateSwagger(spec);
-  });
+  return generateSwagger(loadYamlFiles());
 }
