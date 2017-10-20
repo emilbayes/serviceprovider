@@ -55,4 +55,11 @@ describe('Testing ValidateResponse', () => {
     assert.isArray(result);
     assert.lengthOf(result, 1);
   });
+  it('Should return error array caused by extra properties', () => {
+    const name = 'suggest';
+    const response = [{notSupported: true, term: 'Harry Potter og Hemmelighedernes Kammer'}];
+    const result = validateResponse(name, response);
+    assert.isArray(result);
+    assert.lengthOf(result, 1);
+  });
 });
