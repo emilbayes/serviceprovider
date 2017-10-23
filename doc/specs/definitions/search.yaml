@@ -1,0 +1,84 @@
+definitions:
+  SearchResponse:
+    type: array
+    items:
+      type: object
+      properties:
+        acIdentifier:
+          example: '12345|1234567'
+          $ref: '#/definitions/SearchArrayValue'
+        acSource:
+          $ref: '#/definitions/SearchArrayValue'
+        accessType:
+          $ref: '#/definitions/SearchArrayValue'
+        alternative:
+          $ref: '#/definitions/SearchArrayValue'
+        audience:
+          $ref: '#/definitions/SearchArrayValue'
+        collection:
+          $ref: '#/definitions/SearchArrayValue'
+        collectionDetails:
+          $ref: '#/definitions/CollectionDetails'
+        contributor:
+          $ref: '#/definitions/SearchArrayValue'
+        date:
+          $ref: '#/definitions/SearchArrayValue'
+        dcLanugage:
+          $ref: '#/definitions/SearchArrayValue'
+        dcTitle:
+          $ref: '#/definitions/SearchArrayValue'
+        dcTitleFull:
+          $ref: '#/definitions/SearchArrayValue'
+        description:
+          $ref: '#/definitions/SearchArrayValue'
+        format:
+          $ref: '#/definitions/SearchArrayValue'
+        hasReview:
+          $ref: '#/definitions/SearchArrayValue'
+        LanguageISO6392:
+          $ref: '#/definitions/SearchArrayValue'
+        pid:
+          $ref: '#/definitions/SearchArrayValue'
+        publisher:
+          $ref: '#/definitions/SearchArrayValue'
+        subjectDK5:
+          $ref: '#/definitions/SearchArrayValue'
+        subjectDK5Text:
+          $ref: '#/definitions/SearchArrayValue'
+        title:
+          $ref: '#/definitions/SearchArrayValue'
+        titleFull:
+          $ref: '#/definitions/SearchArrayValue'
+        titleSeries:
+          $ref: '#/definitions/SearchArrayValue'
+        type:
+          $ref: '#/definitions/SearchArrayValue'
+        typeBibDKType:
+          $ref: '#/definitions/SearchArrayValue'
+        workType:
+          $ref: '#/definitions/SearchArrayValue'
+      additionalProperties: false
+  SearchArrayValue: 
+    type: array
+    items: 
+      type: string  
+      example: '12345|1234567'
+  CollectionDetails: 
+    type: array
+    items: 
+      $ref: '#/definitions/CollectionDetail'
+  CollectionDetail:
+    type: object
+    properties: 
+      accessType:
+        $ref: '#/definitions/SearchArrayValue'
+      pid:
+        $ref: '#/definitions/SearchArrayValue'
+      title:
+        $ref: '#/definitions/SearchArrayValue'
+      titleFull:
+        $ref: '#/definitions/SearchArrayValue'
+      type:
+        $ref: '#/definitions/SearchArrayValue'
+      workType:
+        $ref: '#/definitions/SearchArrayValue'
