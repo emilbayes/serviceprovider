@@ -79,6 +79,7 @@ api:
         minimum: 1
         example: 2
     response:
+      $ref: "#/definitions/FacetsResults"
       example: { "creator": [{ "term": "nordisk ministerråd", "frequency": 2708}, { "term": "nordisk råd", "frequency": 2463}], "subject": [{ "term": "danmark", "frequency": 188792}, { "term": "historie", "frequency": 19867}], "type": "tidsskriftsartikel"}
   library:
     tags:

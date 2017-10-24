@@ -383,26 +383,38 @@ definitions:
           type: array
           items:
             type: string
+          minItems: 1
+          maxItems: 1
         coverUrl207:
           type: array
           items:
             type: string
+          minItems: 1
+          maxItems: 1
         coverUrl42:
           type: array
           items:
             type: string
+          minItems: 1
+          maxItems: 1
         coverUrl500:
           type: array
           items:
             type: string
+          minItems: 1
+          maxItems: 1
         coverUrlBack:
           type: array
           items:
             type: string
+          minItems: 1
+          maxItems: 1
         coverUrlFull:
           type: array
           items:
             type: string
+          minItems: 1
+          maxItems: 1
         coverUrlThumbnail:
           type: array
           items:
