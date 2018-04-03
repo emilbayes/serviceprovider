@@ -13,7 +13,7 @@
     "start": "node src/main.js",
     "start:minismaug": "PORT=3000 forever -w --watchDirectory src/smaug src/smaug/minismaug.js --killSignal=SIGTERM -f context.json",
     "start:sp": "SMAUG=http://localhost:3000 SWAGGER_HTTP=true TEST_DEV=true forever -w --watchDirectory src/ --killSignal=SIGTERM src/main.js",
-    "swagger:validate": "curl localhost:8080/v3/swagger.json > swagger.json ; swagger validate swagger.json",
+    "swagger:validate": "curl localhost:8080/v3/swagger.json > swagger.json ; swagger validate swagger.json && swagger-tools validate swagger.json && swagger-cli validate swagger.json",
     "test": "SMAUG=http://localhost:3000 LOG_LEVEL=info npx mocha --timeout 5000 --compilers js:babel-register --recursive src/**/__tests__/* src/__tests__/* src/transformers/utils/**/__tests__/*",
     "watch-test": "SMAUG=http://localhost:3000 LOG_LEVEL=info npx mocha --watch --timeout 5000 --compilers js:babel-register --recursive src/**/__tests__/* src/__tests__/* src/transformers/utils/**/__tests__/*",
     "coverage": "SMAUG=http://localhost:3000 LOG_LEVEL=off babel-istanbul cover _mocha --report json --report lcov --dir ./coverage/units -- --recursive src/**/__tests__/* src/__tests__/* src/transformers/utils/**/__tests__/*",
@@ -83,6 +83,8 @@
     "socketcluster-client": "^5.0.13",
     "superagent": "^3.7.0",
     "supertest": "^3.0.0",
+    "swagger-cli": "^1.0.1",
+    "swagger-tools": "^0.10.3",
     "uglify-js": "^3.0.5",
     "webpack": "^3.8.1"
   }

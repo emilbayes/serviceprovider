@@ -55,24 +55,6 @@
       Danish libraries can get access directly from DBC, see the description in danish above. Others have to go through a library to get access.
       </p>
     </div>
-    <div id="swagger-ui">
-    </div>
-    <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
-    <script>
-SwaggerUIBundle({
-  url: "./swagger.json",
-  dom_id: '#swagger-ui',
-  presets: [
-    SwaggerUIBundle.presets.apis,
-    SwaggerUIBundle.SwaggerUIStandalonePreset
-  ],
-})
-    </script>
-
-
-
-
-
     <div class="custom-documentation">
       <h2>Tokens</h2>
 
@@ -165,6 +147,24 @@ fetchToken.addEventListener('click', function () {
       </p>
 
       </div>
+
+    <div id="swagger-ui">
+    </div>
+    <script src="//unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <script>
+SwaggerUIBundle({
+  url: "./swagger.json",
+  dom_id: '#swagger-ui',
+  presets: [
+    SwaggerUIBundle.presets.apis,
+    SwaggerUIBundle.SwaggerUIStandalonePreset
+  ],
+})
+    </script>
+
+
+
+
 
   </body>
 </html>
